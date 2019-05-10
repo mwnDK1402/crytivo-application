@@ -162,10 +162,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b743e1f2d88686b4b85fbdd663b9fe1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  cuboidPrefab: {fileID: 5031577388151795698, guid: efded8adcef285f4c94c4e17b7c7533c,
+    type: 3}
   rayMaxDistance: Infinity
   rayLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 55
 --- !u!4 &405543603
 Transform:
   m_ObjectHideFlags: 0
