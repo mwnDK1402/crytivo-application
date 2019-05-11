@@ -57,9 +57,12 @@ internal sealed class CuboidGenerator : MonoBehaviour
 
         if (Input.GetMouseButtonUp(0))
         {
-            // Activate cuboid physics
-            this.selectedCuboid.UsePhysics = true;
-            this.selectedCuboid = null;
+            if (this.selectedCuboid)
+            {
+                // Activate cuboid physics
+                this.selectedCuboid.UsePhysics = true;
+                this.selectedCuboid = null;
+            }
 
             Debug.Log($"MouseUp {this.DEBUG_frameCount}");
         }
