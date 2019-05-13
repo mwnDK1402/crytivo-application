@@ -34,30 +34,57 @@ internal sealed class Cuboid : MonoBehaviour
 
         mesh.vertices = new Vector3[]
         {
-            new Vector3(-0.5f, -0.5f, -0.5f),   // CBL 0
-            new Vector3(-0.5f, -0.5f, 0.5f),    // FBL 1
-            new Vector3(0.5f, -0.5f, 0.5f),     // FBR 2
-            new Vector3(0.5f, -0.5f, -0.5f),    // CBR 3
-            new Vector3(-0.5f, 0.5f, -0.5f),    // CTL 4
-            new Vector3(-0.5f, 0.5f, 0.5f),     // FTL 5
-            new Vector3(0.5f, 0.5f, 0.5f),      // FTR 6
-            new Vector3(0.5f, 0.5f, -0.5f),     // CTR 7
+            // B
+            new Vector3(0.5f, -0.5f, -0.5f),    // CBR 0
+            new Vector3(0.5f, -0.5f, 0.5f),     // FBR 1
+            new Vector3(-0.5f, -0.5f, 0.5f),    // FBL 2
+            new Vector3(-0.5f, -0.5f, -0.5f),   // CBL 3
+
+            // F
+            new Vector3(0.5f, -0.5f, 0.5f),     // FBR 4
+            new Vector3(0.5f, 0.5f, 0.5f),      // FTR 5
+            new Vector3(-0.5f, 0.5f, 0.5f),     // FTL 6
+            new Vector3(-0.5f, -0.5f, 0.5f),    // FBL 7
+
+            // R
+            new Vector3(0.5f, -0.5f, -0.5f),    // CBR 8
+            new Vector3(0.5f, 0.5f, -0.5f),     // CTR 9
+            new Vector3(0.5f, 0.5f, 0.5f),      // FTR 10
+            new Vector3(0.5f, -0.5f, 0.5f),     // FBR 11
+
+            // C
+            new Vector3(-0.5f, -0.5f, -0.5f),   // CBL 12
+            new Vector3(-0.5f, 0.5f, -0.5f),    // CTL 13
+            new Vector3(0.5f, 0.5f, -0.5f),     // CTR 14
+            new Vector3(0.5f, -0.5f, -0.5f),    // CBR 15
+
+            // L
+            new Vector3(-0.5f, -0.5f, 0.5f),    // FBL 16
+            new Vector3(-0.5f, 0.5f, 0.5f),     // FTL 17
+            new Vector3(-0.5f, 0.5f, -0.5f),    // CTL 18
+            new Vector3(-0.5f, -0.5f, -0.5f),   // CBL 19
+
+            // T
+            new Vector3(-0.5f, 0.5f, -0.5f),    // CTL 20
+            new Vector3(-0.5f, 0.5f, 0.5f),     // FTL 21
+            new Vector3(0.5f, 0.5f, 0.5f),      // FTR 22
+            new Vector3(0.5f, 0.5f, -0.5f),     // CTR 23
         };
 
         mesh.triangles = new int[]
         {
-            2, 1, 0,    // B
-            0, 3, 2,
-            1, 2, 5,    // F
-            2, 6, 5,
-            2, 3, 6,    // R
-            3, 7, 6,
-            3, 0, 4,    // C
-            4, 7, 3,
-            0, 1, 4,    // L
-            1, 5, 4,
-            4, 5, 6,    // T
-            6, 7, 4
+            0, 1, 2,    // B
+            2, 3, 0,
+            4, 5, 6,    // F
+            6, 7, 4,
+            8, 9, 10,    // R
+            10, 11, 8,
+            12, 13, 14,    // C
+            14, 15, 12,
+            16, 17, 18,    // L
+            18, 19, 16,
+            20, 21, 22,    // T
+            22, 23, 20
         };
 
         mesh.Optimize();
