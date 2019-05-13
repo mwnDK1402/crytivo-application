@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(MeshFilter), typeof(MeshRenderer), typeof(MeshCollider))]
@@ -39,24 +38,26 @@ internal sealed class HexGridGenerator : MonoBehaviour
 
     private void Start()
     {
+        var watch = System.Diagnostics.Stopwatch.StartNew();
         this.GenerateHorizontalHexGrid(10, 10);
+        watch.Stop();
+        Debug.Log($"{watch.ElapsedMilliseconds} ms");
     }
     
     private void GenerateHorizontalHexGrid(int xSize, int ySize)
     {
         if (xSize == 0 || ySize == 0) return;
-
+        
         List<Vector3> vertices = new List<Vector3>();
         List<int> triangles = new List<int>();
-
-        Vector3 offset;
+        
         for (int y = 0; y < ySize; y++)
         {
-            offset = this.transform.position + (y % 2 == 0 ? Up * 1.5f * y : TopRightOffset + Up * 1.5f * (y - 1));
+            Vector3 offset = this.transform.position + (y % 2 == 0 ? Up * 1.5f * y : TopRightOffset + (Up * 1.5f * (y - 1)));
 
             for (int x = 0; x < xSize; x++)
             {
-                float extrusion = UnityEngine.Random.Range(0f, 0.4f);
+                float extrusion = Random.Range(0f, 0.4f);
 
                 int rootIndex = vertices.Count;
                 vertices.Add(offset + Down + Vector3.back * extrusion);
